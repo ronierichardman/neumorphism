@@ -1,19 +1,36 @@
 {% if site.show_projects %}
   <h1 class="title"><span>{{site.projects_title}}</span></h1>
-  <div class="projects-wrapper">
+  <div class="custom-projects-wrapper">
     {% for project in site.data.projects %}
       <div class="project neumorphism-card" data-aos="zoom-in-down">
         <div class="name-link-wrapper">
           <h3>{{project.name}}</h3>
         </div>
         <p class="project-desc">{{project.descr}}</p>
+        {% if project.video-mp4 or project.video-webm or project.image %}
+        <div class="project-media">
+          {% if project.video-mp4 or project.video-webm %}
+          <video autoplay muted loop playsinline preload="auto" webkit-playsinline>
+            {% if project.video-mp4 %}
+            <source src="{{project.video-mp4}}" type="video/mp4">
+            {% endif %}
+            {% if project.video-webm %}
+            <source src="{{project.video-webm}}" type="video/webm">
+            {% endif %}
+            Your browser does not support the video tag.
+          </video>
+          {% elsif project.image %}
+          <img src="{{project.image}}" alt="{{project.name}}" loading="lazy">
+          {% endif %}
+        </div>
+        {% endif %}
         {% if project.demo %}
           <a class="highlight-link" href="{{project.demo}}" target="_blank" rel="noreferrer">
             Demo
           </a>
         {% endif %}
         {% if project.tags %}
-          <div class="tag-wrapper">
+          <div class="tag-wrapper"> 
             {% for tag in project.tags %}
               <span class="tag neumorphism-card">{{tag.tag}}</span>
             {% endfor %}

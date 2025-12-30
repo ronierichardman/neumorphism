@@ -71,6 +71,7 @@ a {
   display: inline-block;
   padding: 0.125rem 0.125rem;
   transition: all 0.2s ease-in-out;
+  width: fit-content;
 
   &:hover {
     box-shadow: inset 0 -2rem 0 0 $primary-color;
@@ -193,12 +194,15 @@ a {
     100% {
       transform: translate(0);
     }
+
     25% {
       transform: translate(160%);
     }
+
     50% {
       transform: translate(160%, 160%);
     }
+
     75% {
       transform: translate(0, 160%);
     }
@@ -308,6 +312,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorEmail 1s linear forwards;
     }
+
     .social-svg {
       fill: #d44638;
     }
@@ -318,6 +323,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorLinkedin 1s linear forwards;
     }
+
     .social-svg {
       fill: #007bb6;
     }
@@ -328,6 +334,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorTwitter 1s linear forwards;
     }
+
     .social-svg {
       fill: #1da1f2;
     }
@@ -346,6 +353,7 @@ a {
       stroke-dasharray: 510;
       stroke-width: 0.5rem;
     }
+
     to {
       stroke: $text-color;
       stroke-dasharray: 83;
@@ -547,7 +555,7 @@ a {
     background: $bg-color;
     border-radius: 0.5rem;
     display: inline-block;
-    padding: .6rem;
+    padding: 0.6rem;
   }
 
   .desc {
@@ -595,6 +603,42 @@ a {
   display: inline-block;
   margin-bottom: 0.25rem;
   padding: 0.5rem;
+}
+
+/* Custom Projects - Full Width */
+
+.custom-projects-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    width: 100%;
+  }
+}
+
+.custom-projects-wrapper {
+  > * {
+    width: 100%;
+  }
+}
+
+.project-media {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.project-media video,
+.project-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-content {
+  width: 100%;
 }
 
 /* Contact Card */
@@ -903,9 +947,11 @@ a {
   0% {
     bottom: 0;
   }
+
   50% {
     bottom: 0.5rem;
   }
+
   100% {
     bottom: 0;
   }
